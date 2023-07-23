@@ -21,6 +21,7 @@ export class Core {
 
   public options: IPickerConfig = {
     doc: document,
+    container: null,
     css: [],
     element: null,
     firstDay: 1,
@@ -68,7 +69,7 @@ export class Core {
     this.ui.wrapper.attachShadow({ mode: 'open' });
     this.ui.shadowRoot = this.ui.wrapper.shadowRoot;
 
-    this.ui.container = document.createElement('div');
+    this.ui.container = this.options.container || document.createElement('div');
     this.ui.container.className = 'container';
 
     if (this.options.zIndex) {
